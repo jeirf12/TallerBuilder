@@ -13,10 +13,10 @@ import java.util.List;
  *
  * @author fallen
  */
-public class ItalianRepositoriImplArrays implements IProductRepository{
+public class ItalianRepositoryImplArrays implements IProductRepository{
     public static List<Product> products;
     
-    public ItalianRepositoriImplArrays(){
+    public ItalianRepositoryImplArrays(){
         products = new ArrayList<>();
         initialize();
     }

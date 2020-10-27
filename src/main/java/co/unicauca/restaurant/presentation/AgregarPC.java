@@ -6,7 +6,7 @@
 package co.unicauca.restaurant.presentation;
 
 import co.unicauca.restaurant.access.IProductRepository;
-import co.unicauca.restaurant.access.ItalianRepositoriImplArrays;
+import co.unicauca.restaurant.access.ItalianRepositoryImplArrays;
 import co.unicauca.restaurant.access.OrientalRepositoryImplArrays;
 import co.unicauca.restaurant.domain.Dish;
 import co.unicauca.restaurant.domain.Menu;
@@ -239,7 +239,7 @@ public class AgregarPC extends javax.swing.JInternalFrame {
                 }
             }
         }else if(cbxTipo.getSelectedItem().toString().equals("Italiano")){
-            repo = new ItalianRepositoriImplArrays();
+            repo = new ItalianRepositoryImplArrays();
             for (Product obj : repo.findAll()) {
                 if (obj.getId() < 4) {
                     cbxBase.addItem(obj.getId() + "," + obj.getName() + "," + obj.getPrice());

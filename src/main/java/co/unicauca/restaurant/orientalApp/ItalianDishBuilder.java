@@ -6,7 +6,7 @@
 package co.unicauca.restaurant.orientalApp;
 
 import co.unicauca.restaurant.access.IProductRepository;
-import co.unicauca.restaurant.access.ItalianRepositoriImplArrays;
+import co.unicauca.restaurant.access.ItalianRepositoryImplArrays;
 import co.unicauca.restaurant.domain.Product;
 import co.unicauca.restaurant.domain.Size;
 import co.unicauca.restaurant.services.DishBuilder;
@@ -19,8 +19,8 @@ import java.util.List;
  * @author fallen
  */
 public class ItalianDishBuilder extends DishBuilder{
-    IProductRepository myRepository;
-    ItalianDish myItalianDish;
+    private IProductRepository myRepository;
+    private ItalianDish myItalianDish;
     private List<Product> allProducts;
     private List<Product> bases;
     private List<Product> options;
@@ -41,7 +41,7 @@ public class ItalianDishBuilder extends DishBuilder{
     
     @Override
     public DishBuilder init(String nombre,String imagen) {
-        myRepository = new ItalianRepositoriImplArrays();
+        myRepository = new ItalianRepositoryImplArrays();
         myDish = new ItalianDish(nombre,imagen,0.0);
         myItalianDish = (ItalianDish) myDish;
         //Obtenemos todos los productos

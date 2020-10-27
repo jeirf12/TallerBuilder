@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class Menu {
     private String nombre;
-    private List<Dish> platos;
+    private final List<Dish> platos;
 
     public Menu(String nombre) {
         this.nombre = nombre;

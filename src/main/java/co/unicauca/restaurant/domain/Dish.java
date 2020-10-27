@@ -5,6 +5,8 @@
  */
 package co.unicauca.restaurant.domain;
 
+import java.util.List;
+
 /**
  *
  * @author fallen
@@ -13,6 +15,9 @@ public class Dish {
     protected String nombre;
     protected double price;
     protected String imagen;
+    protected Product base;
+    protected List<Product> myOptions;
+    protected Size size;
 
     public String getImagen() {
         return imagen;
@@ -30,17 +35,36 @@ public class Dish {
         this.nombre = nombre;
     }
     
-    /**
-     * @return the price
-     */
     public double getPrice() {
         return price;
     }
 
-    /**
-     * @param price the price to set
-     */
     public void setPrice(double price) {
         this.price = price;
     }
+
+    public Product getBase() {
+        return base;
+    }
+
+    public void setBase(Product base) {
+        this.base = base;
+    }
+
+    public List<Product> getMyOptions() {
+        return myOptions;
+    }
+
+    public void setMyOptions(List<Product> myOptions) {
+        this.myOptions = myOptions;
+    }
+
+    public Size getSize() {
+        return size;
+    }
+
+    public void setSize(Size size) {
+        this.size = size;
+    }
+    
 }

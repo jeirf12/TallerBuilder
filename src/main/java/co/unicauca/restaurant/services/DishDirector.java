@@ -13,7 +13,7 @@ import co.unicauca.restaurant.domain.Dish;
  */
 public class DishDirector {
 
-    private DishBuilder builder;
+    private final DishBuilder builder;
 
     public DishDirector(DishBuilder builder) {
         this.builder = builder;

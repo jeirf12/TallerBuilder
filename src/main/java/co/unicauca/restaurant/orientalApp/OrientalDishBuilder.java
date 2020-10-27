@@ -5,7 +5,6 @@
  */
 package co.unicauca.restaurant.orientalApp;
 
-import co.unicauca.restaurant.access.IProductRepository;
 import co.unicauca.restaurant.access.OrientalRepositoryImplArrays;
 import co.unicauca.restaurant.domain.Product;
 import co.unicauca.restaurant.domain.Size;
@@ -19,16 +18,17 @@ import java.util.List;
  * @author fallen
  */
 public class OrientalDishBuilder extends DishBuilder{
-    IProductRepository myRepository;
-    OrientalDish myOrientalDish;
-    private List<Product> allProducts;
-    private List<Product> bases;
-    private List<Product> options;
-  
-  
+    private OrientalDish myOrientalDish;
+    /**
+     * Lee de forma dinamica los productos a partir de una lista
+     * 
+     * @param myProducts
+     * @param foodPart
+     * @return 
+     */
     private Product read(List<Product> myProducts, String foodPart) {
         int input=0;
-        while (input<1 || input>3){
+        while (input<1 || input>myProducts.size()){
             int i = 1;
             Consola.escribirSaltarLinea("Seleccione una " + foodPart, false);
             for (Product each : myProducts) {
@@ -39,6 +39,13 @@ public class OrientalDishBuilder extends DishBuilder{
         }
         return myProducts.get(input - 1);
     }
+    /**
+     * Inicia la creacion del plato
+     * 
+     * @param nombre
+     * @param imagen
+     * @return 
+     */
     @Override
     public DishBuilder init(String nombre,String imagen) {
         myRepository = new OrientalRepositoryImplArrays();
@@ -58,13 +65,22 @@ public class OrientalDishBuilder extends DishBuilder{
         }
         return this;
     }
-
+    /**
+     * Añade la base del plato
+     * 
+     * @return 
+     */
     @Override
     public DishBuilder setCore() {
         myOrientalDish.setBase(read(bases, "Base"));
         return this;
     }
-
+    
+    /**
+     * Añade los acompañantes del plato
+     * 
+     * @return 
+     */
     @Override
     public boolean addPart() {
         String opcion=" ";
@@ -73,7 +89,12 @@ public class OrientalDishBuilder extends DishBuilder{
                 + "tecla para decir que no",opcion,false);
         return opcion.matches("[Ss]");
     }
-
+    
+    /**
+     * elige el tamaño del plato
+     * 
+     * @return 
+     */
     @Override
     public DishBuilder setSize() {
         String tamano = " ";
